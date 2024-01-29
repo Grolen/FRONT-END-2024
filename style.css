@@ -1,0 +1,69 @@
+.container {
+    margin: 0 auto;
+    width: 450px;
+    padding: 15px;
+    box-shadow: 1px 1px 10px #000000;
+    border-radius: 10px;
+}
+
+.user_image img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user {
+    display: flex;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.user_fullname {
+    font-weight: bold;
+}
+
+.user_nickname {
+    color: gray;
+    font-size: 13px;
+}
+
+.more {
+    margin-left: auto;
+}
+
+.message-block {
+    font-size: 20px;
+}
+
+.date-block {
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+.time, .date, .device {
+    margin-top: 10px;
+    margin-right: 15px;
+    color: gray;
+    font-size: 13px;
+}
+
+.info-block {
+    display: flex;
+    margin-top: 10px;
+}
+
+.retweets, .quotes, .likes {
+    margin-right: 10px;
+    color: gray;
+}
+
+b {
+    color: black;
+}
