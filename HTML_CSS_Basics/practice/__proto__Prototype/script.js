@@ -46,7 +46,8 @@ for (let i = 0; i < typesArr.length; i++) {
     para.textContent = `[].__proto__ ссылается на объект Array. Получается array.__proto__ === Array.Prototype. Результат я выведу сюда: ${element.__proto__ === Array.prototype}`;
   }
   container.appendChild(para)
-  if (para.textContent.indexOf(`false`) === -1) {
+  //changed this line from finding false to finding true because instead of false the result might be "undefined" or "null".
+  if (para.textContent.indexOf(`true`) !== -1) {
     counter++
   }
 }
