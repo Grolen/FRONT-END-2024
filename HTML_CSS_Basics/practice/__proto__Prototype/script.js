@@ -1,4 +1,7 @@
+//Did querySelector for container
 const container = document.querySelector('.container');
+
+//Created all types
 
 const func = () => {
 
@@ -9,6 +12,8 @@ const boolean = true;
 const array = [];
 const obj = {};
 
+//Put all in array for checking
+
 const typesArr = [
   func, 
   number, 
@@ -18,7 +23,16 @@ const typesArr = [
   obj
 ]
 
+//Created list of Objects..??
+
 const prototypesOftypes = [Function, Number, String, Boolean, Array, Object]
+
+let counter = 0;
+
+// "for" loop for creating results in DOM
+// * refactor code, make it easier to read, simplify
+
+// ! HAVE AN IDEA HOW TO MAKE IT BETTER WITH instanceof
 
 for (let i = 0; i < typesArr.length; i++) {
   const element = typesArr[i];
@@ -26,34 +40,27 @@ for (let i = 0; i < typesArr.length; i++) {
   const firstLetter = typeOfElem.slice(0,1);
   const capitalized = typeOfElem.replace(firstLetter,firstLetter.toUpperCase());
   const para = document.createElement('p');
-  if (element instanceof Array){
-    para.textContent = `[].__proto__ ссылается на объект Array. Получается array.__proto__ === Array.Prototype. Результат я выведу сюда: ${array.__proto__ === Array.prototype}`;
-  } else {
-    const result = element.__proto__ === prototypesOftypes[i].prototype;
+  const result = element.__proto__ === prototypesOftypes[i].prototype;
     para.textContent = `${element} __proto__ ссылается на объект ${capitalized}. Получается ${typeOfElem}.__proto__ === ${capitalized}.Prototype. Результат я выведу сюда: ${result}`;
+  if (element instanceof Array){
+    para.textContent = `[].__proto__ ссылается на объект Array. Получается array.__proto__ === Array.Prototype. Результат я выведу сюда: ${element.__proto__ === Array.prototype}`;
   }
   container.appendChild(para)
-}
-
-const paragraphs = document.querySelectorAll('p');
-let counter = 0;
-
-for (let i = 0; i < paragraphs.length; i++) {
-  const p = paragraphs[i].innerText;
-  if (p.indexOf(`false`) === -1) {
+  if (para.textContent.indexOf(`false`) === -1) {
     counter++
   }
 }
 
-const para = document.createElement('p');
-para.style.fontSize = `25px`
 
-if (counter === paragraphs.length) {
-  para.style.color = `green`
-  para.textContent = `УРА!!! Получилось, везде true!!!`
+const doubleCheckingPara = document.createElement('p');
+doubleCheckingPara.style.fontSize = `25px`
+
+if (counter === typesArr.length) {
+  doubleCheckingPara.style.color = `green`
+  doubleCheckingPara.textContent = `УРА!!! Получилось, везде true!!!`
 } else {
-  para.style.color = `red`
-    para.textContent = `Ну пиздец, где-то false...`
+  doubleCheckingPara.style.color = `red`
+    doubleCheckingPara.textContent = `Ну пиздец, где-то false...`
   }
 
-container.appendChild(para)
+container.appendChild(doubleCheckingPara)
