@@ -6,11 +6,11 @@ const container = document.querySelector('.container');
 const func = () => {
 
 }
-const number = 2;
-const str = "string"
-const boolean = true;
-const array = [];
-const obj = {};
+const number = new Number(2);
+const str = new String("string")
+const boolean = new Boolean(true);
+const array = new Array([]);
+const obj = new Object({});
 
 //Put all in array for checking
 
@@ -25,7 +25,7 @@ const typesArr = [
 
 //Created list of Objects..??
 
-const prototypesOftypes = [Function, Number, String, Boolean, Array, Object]
+const prototypesOfTypes = [Function, Number, String, Boolean, Array, Object]
 
 let counter = 0;
 
@@ -34,22 +34,27 @@ let counter = 0;
 
 // ! HAVE AN IDEA HOW TO MAKE IT BETTER WITH instanceof
 
+//05.03.24 - refactored code, made better functionality
+
 for (let i = 0; i < typesArr.length; i++) {
   const element = typesArr[i];
-  const typeOfElem = typeof element; 
-  const firstLetter = typeOfElem.slice(0,1);
-  const capitalized = typeOfElem.replace(firstLetter,firstLetter.toUpperCase());
-  const para = document.createElement('p');
-  const result = element.__proto__ === prototypesOftypes[i].prototype;
-    para.textContent = `${element} __proto__ ссылается на объект ${capitalized}. Получается ${typeOfElem}.__proto__ === ${capitalized}.Prototype. Результат я выведу сюда: ${result}`;
-  if (element instanceof Array){
-    para.textContent = `[].__proto__ ссылается на объект Array. Получается array.__proto__ === Array.Prototype. Результат я выведу сюда: ${element.__proto__ === Array.prototype}`;
+   const para = document.createElement('p');
+  for (let j = 0; j < prototypesOfTypes.length; j++) {
+    const type = prototypesOfTypes[j];
+    if(element instanceof type) {
+      const typeToSting = type.toString().split(" ")[1]
+      const removedBrackets = typeToSting.slice(0, typeToSting.length-2)
+      const lowerCaseName = removedBrackets.toLocaleLowerCase()
+      const result = element.__proto__ === type.prototype;
+      para.textContent = `${lowerCaseName}.__proto__ ссылается на объект ${removedBrackets}. Получается ${lowerCaseName}.__proto__ === ${removedBrackets}.Prototype. Результат я выведу сюда: ${result}`
+      break;
+    }
   }
-  container.appendChild(para)
   //changed this line from finding false to finding true because instead of false the result might be "undefined" or "null".
   if (para.textContent.indexOf(`true`) !== -1) {
     counter++
   }
+  container.appendChild(para)
 }
 
 
