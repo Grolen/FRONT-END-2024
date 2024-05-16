@@ -29,10 +29,15 @@ let humanChoice = '';
 
 
 const body = document.querySelector('body');
+const div = document.querySelector('.player-choice');
 
-const humanSelecion = document.querySelector('#playerInput');
+const choiceInfo = document.createElement('p');
+div.appendChild(choiceInfo)
 
-const submitButton = document.querySelector('#submitButton');
+const rock_button = document.querySelector('.rock-btn');
+const paper_button = document.querySelector('.paper-btn');
+const scissors_button = document.querySelector('.scissors-btn');
+const startGame_button = document.querySelector('.start-game-btn');
 
 const p = document.querySelector('.incorrect_input_warning');
 
@@ -43,8 +48,10 @@ const computerScoreHTML = document.createElement('p');
 computerScoreHTML.textContent = `Computers score is: ${computerScore}`;
 body.appendChild(computerScoreHTML)
 
-submitButton.addEventListener("click", playGame)
-
+rock_button.addEventListener("click", getHumanChoice)
+paper_button.addEventListener("click", getHumanChoice)
+scissors_button.addEventListener("click", getHumanChoice)
+startGame_button.addEventListener("click", playGame)
 
 function updateScore() {
     humanScoreHTML.textContent = `Your score is: ${humanScore}`;
@@ -53,21 +60,9 @@ function updateScore() {
 
 
 function getHumanChoice() {
-    let humanValue = humanSelecion.value.toLowerCase();
-    if(humanValue === "rock" || humanValue === "paper" || humanValue === "scissors") {
-        if(p.classList.contains("enabled")) {
-            p.classList.add("disabled");
-            p.classList.remove("enabled");
-        }
+    let humanValue = this.innerText.toLowerCase();
         humanChoice = humanValue;
-        humanSelecion.value = '';
-    } else {
-        if(p.classList.contains("disabled")) {
-            p.classList.add("enabled");
-            p.classList.remove("disabled");
-        }
-        humanSelecion.value = '';
-    }
+        choiceInfo.textContent = `You chose ${humanChoice}!`;
 }
 
 function getComputerChoice() {
@@ -110,7 +105,15 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    getHumanChoice();
+    if (humanChoice === '') {
+        if(p.classList.contains("disabled")) {
+            p.classList.add("enabled");
+            p.classList.remove("disabled");
+        }
+    } else {
+        p.classList.add("disabled");
+            p.classList.remove("enabled");
+    }
     getComputerChoice();
     if(computerScore < 5 && humanScore < 5) {
         playRound(humanChoice, computerChoice)
@@ -123,4 +126,5 @@ function playGame() {
     }
     computerChoice = ''
     humanChoice = ''
+    choiceInfo.textContent = ''
 }
