@@ -15,7 +15,3 @@ button {
 .row {
     border: 1px solid black;
 }
-
-.row:hover {
-    background-color: green;
-}
