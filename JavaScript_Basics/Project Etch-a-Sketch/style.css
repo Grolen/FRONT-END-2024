@@ -1,17 +1,21 @@
-h1 {
+body {
     text-align: center;
+}
+
+button {
+    margin-bottom: 20px;
 }
 
 .container {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.div-child {
-    text-align: center;
-    width: 60px;
+.row {
+    border: 1px solid black;
 }
 
-.div-child:hover {
+.row:hover {
     background-color: green;
 }
