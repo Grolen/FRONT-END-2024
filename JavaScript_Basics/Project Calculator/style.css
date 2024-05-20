@@ -54,7 +54,7 @@
     align-items: stretch;
 }
 
-.btn-operation {
+.btn-operation, .btn-operate {
     width: 40px;
     height: 40px;
 }
