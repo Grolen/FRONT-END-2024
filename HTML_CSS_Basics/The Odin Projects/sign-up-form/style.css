@@ -33,7 +33,7 @@
     color: white;
     max-height: 100px;
     background-color: rgba(0, 0, 0, 0.5);
-    margin-top: 200px;
+    margin-top: 185px;
 }
 
 .logo-image {
@@ -45,10 +45,93 @@
 }
 
 .photo-by {
-    color: white;
+    font-size: 12px;
+    color: rgb(219, 219, 219);
     position: absolute;
     bottom: 0;
-    left: 25%;
+    left: 30%;
     margin-bottom: 10px;
 }
 
+main {
+    background-color: rgb(240, 238, 238);
+    width: 60%;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding-left: 50px;
+    box-shadow: 1px 2px 3px  rgba(0,0,0,.3);
+}
+
+h2 {
+    margin: 15px 0;
+    font-size: 23px;
+}
+
+.form-fields {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.form-fields div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+}
+
+.first-form-column{
+    margin-right: 50px;
+}
+
+label {
+    font-size: 13px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 2px 2px 3px  rgba(0,0,0,.5);
+    border: 1px solid blue;
+}
+
+input {
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border: 1px solid #E5E7EB;
+}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+button {
+    background-color: #596D48;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 20px 50px 30px;
+    border: none;
+}
+
+.p-login{ 
+    margin-left: 50px;
+}
+
+.p-login a {
+    color:#596D48;
+    text-decoration: none;
+}
