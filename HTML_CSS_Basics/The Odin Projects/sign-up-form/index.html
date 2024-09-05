@@ -21,48 +21,50 @@
     <main class="main">
       <section>
         <h1>
-          This is not a real online service! You know you need something like
-          this in your life to help you reakize your deepest dreams.<br />
+          This is not a real online service! You know you need something
+          <br />like this in your life to help you realize your deepest
+          dreams.<br />
           Sign up now to get started.<br /><br />
           You <i>know</i> you want to.
         </h1>
         <article>
           <form action="" method="post" id="sign-up-form">
             <h2>Let's do this!</h2>
-            <div class="first-form-column">
-              <label for="fname">FIRST NAME</label>
-              <input type="text" id="fname" name="first-name" required />
-              <label for="email">EMAIL</label>
-              <input type="email" id="email" name="users-email" required />
-              <label for="password">PASSWORD</label>
-              <input
-                type="password"
-                id="password"
-                name="users-password"
-                required
-              />
-            </div>
-            <div class="second-form-column">
-              <label for="lname">LAST NAME</label>
-              <input type="text" id="lname" name="last-name" required />
-              <label for="phone-number">PHONE NUMBER</label>
-              <input
-                type="number"
-                id="phone-number"
-                name="users-phone-number"
-                required
-              />
-              <label for="confirm-password">CONFIRM PASSWORD</label>
-              <input
-                type="password"
-                id="confirm-password"
-                name="users-confirmed-password"
-                required
-              />
+            <div class="form-fields">
+              <div class="first-form-column">
+                <label for="fname">FIRST NAME</label>
+                <input type="text" id="fname" name="first-name" />
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="users-email" />
+                <label for="password">PASSWORD</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="users-password"
+                  minlength="6"
+                />
+              </div>
+              <div class="second-form-column">
+                <label for="lname">LAST NAME</label>
+                <input type="text" id="lname" name="last-name" />
+                <label for="phone-number">PHONE NUMBER</label>
+                <input
+                  type="number"
+                  id="phone-number"
+                  name="users-phone-number"
+                />
+                <label for="confirm-password">CONFIRM PASSWORD</label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="users-confirmed-password"
+                  minlength="6"
+                />
+              </div>
             </div>
           </form>
           <button type="submit" form="sign-up-form">Create Account</button>
-          <p>Already heve an account? <a href="">Log in</a></p>
+          <p class="p-login">Already heve an account? <a href="">Log in</a></p>
         </article>
       </section>
     </main>
