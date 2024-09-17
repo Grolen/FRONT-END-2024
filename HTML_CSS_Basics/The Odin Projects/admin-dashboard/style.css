@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+/* *GRID LAYOUT */
+
+.body {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    grid-template-areas: "nav head"
+                         "nav main";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: #1992d4;
+    color: white;
+}
+
+.header {
+    grid-area: head;
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    /* ! DONT FORGET ABOUT THE HEIGHT */
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: "p a"
+                         "p t";
+    grid-template-columns: 70% 1fr;
+}
+
+.main-projects {
+    display: grid;
+    grid-area: p;
+    grid-template-areas: "h h";
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 15px;
+}
+
+.main-projects_header {
+    grid-area: h;
+}
+
+/* *STYLING */
+
+/* NAVBAR */
+
