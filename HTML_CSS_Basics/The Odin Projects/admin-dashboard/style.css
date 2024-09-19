@@ -130,6 +130,7 @@ input {
 
 img {
     width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 
@@ -141,6 +142,7 @@ img {
 
 .greetings-avatar_img {
     width: 70px;
+    height: 70px;
     margin-right: 20px;
 }
 
@@ -221,4 +223,30 @@ img {
 
 .announcement:last-child {
     border-bottom: none;
+}
+
+.trending-users_projects {
+    margin-top: 18px;
+    margin-right: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.users_projects {
+    display: flex;
+    padding: 15px 0px;
+    gap: 15px;
+}
+
+.about-user_username {
+    font-size: smaller;
+}
+
+.about-user_project-name {
+    color: #919191;
+    font-size: smaller;
 }
