@@ -1,3 +1,5 @@
+// *Objects and prototypes
+
 function Book(title, author, pages) {
     this.title = title;
     this.author = author;
@@ -7,8 +9,14 @@ function Book(title, author, pages) {
     }
 }
 
-const someBook = new Book ('da', 'net', 24)
+const someBook = new Book ('Po lby', 'styk', 24)
 
 console.log(someBook.info())
 
+// ! What is that and why the result is true??
+
 console.log(Object.getPrototypeOf(someBook) === Book.prototype)
+
+// *Project: Library
+
+
