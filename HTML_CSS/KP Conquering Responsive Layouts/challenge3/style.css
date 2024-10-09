@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -23,13 +25,18 @@ body {
 
   h1 {
     font-size: 3rem;
+    padding: .5em 0;
   }
 
   p {
     font-size: 1.3125rem;
+    padding: 1em 0;
+    font-weight: 300;
+    line-height: 1.5em;
   }
 
   button {
+    margin-top: 3em;
     border: none;
     font-size: 1.3125rem;
     font-weight: bold;
