@@ -6,6 +6,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
 }
 
 .intro {
@@ -16,13 +17,13 @@ body {
   
   .container {
     width: 80%;
+    max-width: 1100px;
     margin: 0 auto;
   }
-  
-  .intro-content {
-    width: 60%;
-  }
 
+.intro__content {
+  width: 60%;
+}
   h1 {
     font-size: 3rem;
     padding: .5em 0;
