@@ -62,12 +62,15 @@ h1 {
 }
 
 .hero__text { 
-    width: 62%;
+    width: 55%;
 }
 
 .hero__img {
-    width: 32%;
-    align-self: flex-start;
+    width: 40%;
+}
+
+img {
+    max-width: 100%;
 }
 
 .hero p {
@@ -88,4 +91,32 @@ h1 {
 .btn:hover,
 .btn:focus {
     opacity: .75; 
+}
+
+.quality {
+    margin: 3rem 0;
+}
+
+.quality__article {
+    width: 55%;
+}
+
+
+.article__header {
+    color: #136C72;
+}
+
+.quality__aside {
+    width: 40%;
+    background-color: #136C72;
+    color: #FFF;
+    text-align: center;
+}
+
+.aside__col {
+    padding: 2.2rem;
+}
+
+.aside__header {
+    margin-top: 0;
 }
