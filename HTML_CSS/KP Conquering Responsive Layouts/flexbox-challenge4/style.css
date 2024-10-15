@@ -13,6 +13,34 @@ img {
 }
 
 h1 {
-    font-size: 3rem;
-    margin-top: 0;
+    font-family: "Playfair Display";
+    font-size: 4rem;
+    margin: 0;
+    padding: 0;
+    color: #824936;
+    font-weight: 1000;
+    line-height: 1em;
+}
+
+header {
+    display: flex;
+    min-height: 660px;
+    text-align: center;
+    align-items: center;
+    background-color: #F3EED9;
+}
+
+.container {
+    max-width: 1128px;
+    margin: 0 auto;
+}
+
+.content {
+    width: 50%;
+}
+
+.container p {
+    text-transform: uppercase;
+    letter-spacing: .7rem;
+    font-weight: 100;
 }
