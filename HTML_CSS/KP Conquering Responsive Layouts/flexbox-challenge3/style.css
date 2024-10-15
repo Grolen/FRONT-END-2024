@@ -77,11 +77,18 @@ header {
     padding: .5em 0;
 }
 
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .nav__list {
+    margin: 0;
     padding: 0;
     list-style: none;
-    justify-content: start;
-    font-size: 0.6em;
+    display: flex;
+    font-size: 0.7em;
 }
 
 .nav__link {
