@@ -39,8 +39,33 @@ header {
     width: 50%;
 }
 
-.container p {
+.content p {
     text-transform: uppercase;
     letter-spacing: .7rem;
     font-weight: 100;
+}
+
+.quality {
+    padding: 100px 0;
+    background-color: #edebeb;
+}
+
+.quality__header {
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    font-family: "Playfair Display";
+    font-size: 2.5rem;
+    font-weight: 1000;
+    color: #824936;
+    text-align: center;
+}
+
+.quality__article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quality__article p {
+    width: 46%;
 }
