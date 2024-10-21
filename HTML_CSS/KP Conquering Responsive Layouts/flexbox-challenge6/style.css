@@ -239,6 +239,7 @@ footer {
 footer h2 {
     margin: 0;
     color: #A59678;
+    font-size: 1.2rem;
 }
 
 footer p, footer li {
@@ -302,6 +303,51 @@ footer p, footer li {
         flex-direction: row;
         justify-content: space-between;
 
+    }
+
+    .section-one {
+        padding: 4rem 0;
+    }
+
+    .one-title {
+        margin: 0;
+    }
+
+    .one__content {
+        align-self: flex-end;
+    }
+    
+    .benefit {
+        padding: 0 1rem;
+    }
+
+    .section-three .row {
+        flex-direction: column;
+    }
+
+    .primary-content-img {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    aside {
+        display: flex;
+        margin-bottom: 3rem;
+    }
+
+    .sidebar__content {
+        padding: 0.5rem;
+        margin: .5rem;
+    }
+
+    .sidebar-title {
+        margin: 0;
+        margin: 1rem 0;
+    }
+
+    .sidebar-text {
+        padding: 1rem;
+        font-size: 1.2rem;
     }
 }
 
