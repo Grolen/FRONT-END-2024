@@ -28,4 +28,51 @@ h1 {
     margin-top: 0;
 }
 
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+}
+
+.section-one {
+    padding: 3rem 0;
+    background-color: #3B4050;
+    color: #fff;
+}
+
+.section-one div {
+    flex-direction: column;
+}
+
+.one-title {
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 1em;
+}
+
+span {
+   color: #A59678; 
+}
+
+.one-text {
+    font-family: "Montserrat", sans-serif;
+    color: #b4b4b4;
+}
+
+.btn {
+    font-family: "Oswald", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #A59678;
+    padding: 0.25em 1.5em;
+    border-radius: 100px;
+}
+
 
