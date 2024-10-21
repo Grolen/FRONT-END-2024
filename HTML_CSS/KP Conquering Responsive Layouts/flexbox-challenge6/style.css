@@ -103,7 +103,7 @@ span {
 .sidebar__content {
     padding: 2rem;
     margin-bottom: 1rem;
-    background-color: #2E323F;
+    background-color: #3B4050;
     color: #fff;
 }
 
@@ -113,6 +113,49 @@ span {
 
 .sidebar-title {
     margin-bottom: 2rem;
+}
+
+footer {
+    padding: 2rem 0;
+    background-color: #3B4050;
+    color: #b4b4b4;
+}
+
+footer h2 {
+    margin: 0;
+    color: #A59678;
+}
+
+footer p, footer li {
+    font-size: 1rem;
+}
+
+.footer-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+.footer__info {
+    width: 50%;
+}
+
+.footer-nav__list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav__item {
+    padding: .7rem 0;
+}
+
+.footer-nav__link {
+    text-decoration: none;
+    color: #b4b4b4;
+}
+
+.info-text {
+    line-height: 3rem;
 }
 
 
