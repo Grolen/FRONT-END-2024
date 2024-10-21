@@ -40,11 +40,126 @@ p {
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+        /* added for nav-toggle positioning */
+        position: relative;
 }
 
 .row {
     display: flex;
     flex-direction: column;
+}
+
+header {
+    background-color: #2E323F;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.nav {
+    font-family: "Oswald", sans-serif;
+    width: 100%;
+}
+
+
+
+.nav-toggle {
+    cursor: pointer;
+    border: 0;
+    width: 3em;
+    height: 3em;
+    margin: -5px;
+    padding: 0em;
+    border-radius: 50%;
+    background: #072A2D;
+    color: white;
+    transition: opacity 250ms ease;
+    
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+    opacity: .75;
+}
+
+.hamburger {
+    width: 50%;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    display: block;
+    margin: 0 auto;
+    height: 3px;
+    background: white;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    width: 100%;
+}
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+.nav {
+    visibility: hidden;
+    height: 0;
+    position: absolute;
+    font-size: 1rem;
+}
+
+.nav__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav__list--primary {
+    margin-bottom: 2em;
+}
+
+.nav__item {
+    margin-top: 0.75em;
+}
+
+.nav__link {
+    text-decoration: none;
+    color:#FFF;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.nav__link:hover, 
+.nav__link:focus {
+    opacity: .65;
+}
+
+.nav__link--button {
+    padding: 0.25em 0.75em;
+    background-color: #A59678;
+    border-radius: 100px;
+
+}
+
+.nav--visible {
+    visibility: visible;
+    height: auto;
+    position: relative;
+} 
+
+
+.logo {
+    height: 30px;
 }
 
 .section-one {
