@@ -273,4 +273,35 @@ footer p, footer li {
     line-height: 3rem;
 }
 
+@media (min-width: 700px) {
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav {
+        position: relative;
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: auto;
+    }
+
+    
+    .nav__list {
+        margin: 0;
+        display: flex;
+    }
+    
+    .nav__item {
+        margin: 0 0 0 1.5em;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+}
 
