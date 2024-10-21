@@ -28,6 +28,14 @@ h1 {
     margin-top: 0;
 }
 
+h1, h2 {
+    font-family: "Oswald", sans-serif;
+}
+
+p {
+    font-family: "Montserrat", sans-serif;
+}
+
 .container {
     width: 80%;
     max-width: 1200px;
@@ -36,6 +44,7 @@ h1 {
 
 .row {
     display: flex;
+    flex-direction: column;
 }
 
 .section-one {
@@ -44,12 +53,7 @@ h1 {
     color: #fff;
 }
 
-.section-one div {
-    flex-direction: column;
-}
-
 .one-title {
-    font-family: "Oswald", sans-serif;
     font-weight: bold;
     font-size: 4rem;
     line-height: 1em;
@@ -73,6 +77,19 @@ span {
     background-color: #A59678;
     padding: 0.25em 1.5em;
     border-radius: 100px;
+}
+
+.section-two {
+    background-color: #ebebeb;;
+}
+
+.benefit {
+    text-align: center;
+}
+
+.benefit-title {
+    font-family: "Oswald", sans-serif;
+    color: #A59678;
 }
 
 
