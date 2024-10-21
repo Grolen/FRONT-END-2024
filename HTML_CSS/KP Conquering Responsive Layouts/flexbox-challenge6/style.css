@@ -92,4 +92,27 @@ span {
     color: #A59678;
 }
 
+.primary-content-title {
+    color: #A59678;
+}
+
+.sidebar {
+    text-align: center;
+}
+
+.sidebar__content {
+    padding: 2rem;
+    margin-bottom: 1rem;
+    background-color: #2E323F;
+    color: #fff;
+}
+
+.sidebar-text, .sidebar-title {
+    margin: 0;
+}
+
+.sidebar-title {
+    margin-bottom: 2rem;
+}
+
 
