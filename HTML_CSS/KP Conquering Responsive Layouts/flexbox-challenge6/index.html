@@ -4,13 +4,164 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conquering Responsive Layouts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header>
+      <div class="container row">
+        <button class="nav-toggle" aria-label="open navigation">
+          <span class="hamburger"></span>
+        </button>
+        <a class="logo" href="#">
+          <img src="img/logo.svg" alt="conquering responsive layouts" />
+        </a>
+        <nav class="nav">
+          <ul class="nav__list nav__list--primary">
+            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+          </ul>
+          <ul class="nav__list nav__list--secondary">
+            <li class="nav__item"><a href="#" class="nav__link">Sign In</a></li>
+            <li class="nav__item">
+              <a href="#" class="nav__link nav__link--button">Sign up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="section-one">
+        <div class="container df">
+          <h1 class="one-title">
+            Responsive layouts <span>don't have to be a struggle</span>
+          </h1>
+          <div class="one__content">
+            <p class="one-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <a href="#" class="btn">I want to learn</a>
+          </div>
+        </div>
+      </section>
+      <section class="section-two">
+        <div class="benefit">
+          <h2 class="benefit-title">Mobile-first</h2>
+          <p class="benefit-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam.
+          </p>
+        </div>
+        <div class="benefit">
+          <h2 class="benefit-title">Efficient</h2>
+          <p class="benefit-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam.
+          </p>
+        </div>
+        <div class="benefit">
+          <h2 class="benefit-title">Done right</h2>
+          <p class="benefit-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam.
+          </p>
+        </div>
+      </section>
+      <section class="section-three">
+        <article class="primary-content">
+          <h2 class="primary-content-title">It doesn't have to be so hard</h2>
+          <p class="primary-content-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam.
+          </p>
+          <img
+            src="./img/hero-img.jpg"
+            alt="painted notebook"
+            class="primary-content-img"
+          />
+          <p class="primary-content-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam.
+          </p>
+        </article>
+        <aside class="sidebar">
+          <h2 class="sidebar-title">Break it down</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+
+          <h2 class="sidebar-title">Work your way up</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+
+          <h2 class="sidebar-title">Quality</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </aside>
+      </section>
+    </main>
+    <footer>
+      <h1 class="footer-title">Just scratching the surface</h1>
+      <div class="footer__about">
+        <h2 class="about-title">About the company</h2>
+        <p class="about-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam.
+        </p>
+      </div>
+      <div class="footer__info">
+        <h2 class="info-title">Getting around</h2>
+        <ul class="footer-nav__list footer-nav__list--primary">
+          <li class="footer-nav__item">
+            <a href="#" class="footer-nav__link">Home</a>
+          </li>
+          <li class="footer-nav__item">
+            <a href="#" class="footer-nav__link">About</a>
+          </li>
+          <li class="footer-nav__item">
+            <a href="#" class="footer-nav__link">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__info">
+        <h2 class="info-title">Other things</h2>
+        <p class="info-text">Lorem ipsum dolor sit amet consectetur</p>
+      </div>
+      <div class="footer__info">
+        <h2 class="info-title">And more</h2>
+        <p class="info-text">Lorem ipsum dolor sit amet consectetur</p>
+      </div>
+    </footer>
     <script src="main.js"></script>
   </body>
 </html>
