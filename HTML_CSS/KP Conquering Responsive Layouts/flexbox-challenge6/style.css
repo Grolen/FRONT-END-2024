@@ -390,5 +390,14 @@ footer .row {
         font-size: 2rem;
     }
 
+    .section-two {
+        padding: 6rem 0;
+    }
+
+    .benefit {
+        padding: 0 2.5rem;
+        line-height: 2rem;
+    }
+
 }
 
