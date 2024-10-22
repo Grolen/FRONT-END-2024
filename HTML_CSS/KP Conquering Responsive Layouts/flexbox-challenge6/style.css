@@ -432,5 +432,18 @@ footer .row {
         align-self: start;
     }
 
+    footer {
+        padding: 4rem 0;
+    }
+
+    .footer-title {
+        font-size: 4rem;
+    }
+
+    .footer__info {
+        max-width: 140px;
+        margin: 0 2.5rem;
+    }
+
 }
 
