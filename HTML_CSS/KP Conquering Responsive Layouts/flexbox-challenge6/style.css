@@ -258,7 +258,6 @@ footer .row {
 }
 
 .footer__about {
-    max-width: 40%;
     margin-right: auto;
 }
 
@@ -360,6 +359,10 @@ footer .row {
         padding: 1rem;
         font-size: 1.2rem;
     }
+
+    .footer__about {
+        max-width: 40%;
+    }
 }
 
 @media (min-width: 1000px) {
@@ -434,6 +437,10 @@ footer .row {
 
     footer {
         padding: 4rem 0;
+    }
+
+    .footer__about {
+        max-width: 40%;
     }
 
     .footer-title {
