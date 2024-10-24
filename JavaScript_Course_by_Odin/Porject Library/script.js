@@ -31,6 +31,10 @@ function Book(title, author, pages) {
 }
 
 function addBookToLibrary() {
-    
+    const bookTitle = prompt("Enter the book's title!")
+    const bookAuthor = prompt("Enter the book's author!")
+    const bookPages = prompt("Enter the book's number of pages!")
+    const userNewBook = new Book(bookTitle, bookAuthor, bookPages)
+    const objToString = userNewBook.title + ', ' + userNewBook.author + ', ' + userNewBook.pages
+    console.log(objToString)
 }
-
