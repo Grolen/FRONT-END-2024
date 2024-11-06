@@ -1,50 +1,63 @@
 // *Project: Library
 
-const body = document.querySelector("body");
-const library = document.querySelector(".library");
-
+// DOM Elements
+const libraryContainer = document.querySelector(".library");
 const inputs = document.querySelectorAll("input");
-console.log(inputs);
+const addBookButton = document.querySelector(".submit-form");
 
-const myLibrary = [
-  { title: "Book one", author: "Me", pages: "228" },
-  { title: "Book two", author: "Me", pages: "228" },
-  { title: "Book three", author: "Me", pages: "228" },
-];
-
-function Book(title, author, pages, isRead = false) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+// Book class
+class Book {
+  constructor(title, author, pages, isRead = false) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 }
 
+// Library array
+const myLibrary = [
+  new Book("Book one", "Me", "228"),
+  new Book("Book two", "Me", "228"),
+  new Book("Book three", "Me", "228"),
+];
+
+// Initial render of the library
 updatingLibraryDOM();
 
+// Update DOM with current library
 function updatingLibraryDOM() {
-  const container = document.querySelector(".library");
-  container.innerHTML = "";
+  libraryContainer.innerHTML = ""; // Clear container
 
   myLibrary.forEach((book, index) => {
-    const bookCard = document.createElement("div");
-    bookCard.classList.add("book");
-
-    bookCard.innerHTML = `
-      <h3 class="book-title">${book.title}</h3>
-      <p class="book-author">${book.author}</p>
-      <p class="book-pages">${book.pages}</p>
-       <label>
-        <input type="checkbox" class="is-read-checkbox" data-index="${index}" ${
-      book.isRead ? "checked" : ""
-    }>
-        Is read
-      </label>
-      <span class="delete-btn" data-index="${index}">X</span>
-    `;
-
-    container.appendChild(bookCard);
+    const bookCard = renderBookCard(book, index);
+    libraryContainer.appendChild(bookCard);
   });
 
+  attachEventListeners(); // Reattach listeners
+}
+
+// Render each book card
+function renderBookCard(book, index) {
+  const bookCard = document.createElement("div");
+  bookCard.classList.add("book");
+  bookCard.innerHTML = `
+    <h3 class="book-title">${book.title}</h3>
+    <p class="book-author">by ${book.author}</p>
+    <p class="book-pages">${book.pages} pages</p>
+    <label>
+      <input type="checkbox" class="is-read-checkbox" data-index="${index}" ${
+    book.isRead ? "checked" : ""
+  }>
+      Read
+    </label>
+    <span class="delete-btn" data-index="${index}">X</span>
+  `;
+  return bookCard;
+}
+
+// Attach event listeners for delete and read status
+function attachEventListeners() {
   document.querySelectorAll(".delete-btn").forEach((button) => {
     button.addEventListener("click", deleteBook);
   });
@@ -54,40 +67,48 @@ function updatingLibraryDOM() {
   });
 }
 
-function deleteBook() {
-  const bookIndex = this.getAttribute("data-index");
+// Event Handlers
+function deleteBook(event) {
+  const bookIndex = event.target.getAttribute("data-index");
   myLibrary.splice(bookIndex, 1);
-  updatingLibraryDOM();
+  updatingLibraryDOM(); // Обновляем DOM после удаления
 }
 
-function toggleReadStatus() {
-  const bookIndex = this.getAttribute("data-index");
-  myLibrary[bookIndex].isRead = this.checked;
+function toggleReadStatus(event) {
+  const bookIndex = event.target.getAttribute("data-index");
+  myLibrary[bookIndex].isRead = event.target.checked;
+  updatingLibraryDOM(); // Обновляем DOM после изменения статуса
 }
 
+// Add a new book to library
 function addBookToLibrary() {
-  const values = [...inputs].map((input) => input.value.trim());
-  const allFieldsFilled = values.every((value) => value !== "");
+  const [title, author, pages] = [...inputs].map((input) => input.value.trim());
+  const isRead = document.querySelector("#isReadCheckbox").checked;
 
-  if (allFieldsFilled) {
-    const [bookTitle, bookAuthor, bookPages] = values;
-    const isRead = document.querySelector("#isReadCheckbox").checked;
-    myLibrary.push(createBook(bookTitle, bookAuthor, bookPages, isRead));
-    updatingLibraryDOM();
-    clearInputs();
+  if (!title || !author || !pages) {
+    alert("All fields must be filled out!");
+    return;
   }
+
+  if (
+    myLibrary.some((book) => book.title === title && book.author === author)
+  ) {
+    alert("This book already exists in your library.");
+    return;
+  }
+
+  const newBook = new Book(title, author, pages, isRead);
+  myLibrary.push(newBook);
+  updatingLibraryDOM();
+  clearInputs();
 }
 
-function createBook(title, author, pages) {
-  return new Book(title, author, pages);
-}
-
+// Clear input fields after adding a book
 function clearInputs() {
   inputs.forEach((input) => (input.value = ""));
 }
 
-const addBookButton = document.querySelector(".submit-form");
-
+// Attach event listener to add book button
 addBookButton.addEventListener("click", (e) => {
   e.preventDefault();
   addBookToLibrary();
