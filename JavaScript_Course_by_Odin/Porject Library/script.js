@@ -1,11 +1,9 @@
-// *Project: Library
-
-// DOM Elements
-const libraryContainer = document.querySelector(".library");
-const inputs = document.querySelectorAll("input");
-const addBookButton = document.querySelector(".submit-form");
-
-// Book class
+// Getting els
+const modal = document.getElementById("modal");
+const openFormButton = document.getElementById("openFormButton");
+const closeButton = document.querySelector(".close-btn");
+const form = document.querySelector(".new-book-form");
+const deleteBookButton = document.querySelector(".delete-book-btn");
 class Book {
   constructor(title, author, pages, isRead = false) {
     this.title = title;
@@ -15,29 +13,62 @@ class Book {
   }
 }
 
-// Library array
 const myLibrary = [
   new Book("Book one", "Me", "228"),
   new Book("Book two", "Me", "228"),
   new Book("Book three", "Me", "228"),
 ];
 
-// Initial render of the library
-updatingLibraryDOM();
+// Opening modal window
+openFormButton.addEventListener("click", () => {
+  modal.style.display = "block";
+  clearForm();
+  deleteBookButton.style.display = "none"; // hiding X button
+});
 
-// Update DOM with current library
+// Closing modal window
+closeButton.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// Clear form func
+function clearForm() {
+  form.reset();
+}
+
+// Listeners for
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = document.querySelector("#title").value.trim();
+  const author = document.querySelector("#author").value.trim();
+  const pages = document.querySelector("#pages").value.trim();
+  const isRead = document.querySelector("#isReadCheckbox").checked;
+
+  if (!title || !author || !pages) {
+    alert("All fields must be filled out!");
+    return;
+  } else {
+    const newBook = new Book(title, author, pages, isRead);
+    myLibrary.push(newBook);
+  }
+
+  updatingLibraryDOM();
+  modal.style.display = "none";
+});
+
+// Updating DOM
 function updatingLibraryDOM() {
-  libraryContainer.innerHTML = ""; // Clear container
+  const libraryContainer = document.querySelector(".library");
+  libraryContainer.innerHTML = "";
 
   myLibrary.forEach((book, index) => {
     const bookCard = renderBookCard(book, index);
     libraryContainer.appendChild(bookCard);
   });
-
-  attachEventListeners(); // Reattach listeners
 }
 
-// Render each book card
+// Rendering a book
 function renderBookCard(book, index) {
   const bookCard = document.createElement("div");
   bookCard.classList.add("book");
@@ -53,63 +84,29 @@ function renderBookCard(book, index) {
     </label>
     <span class="delete-btn" data-index="${index}">X</span>
   `;
+
+  // Add delete listener
+  const deleteButton = bookCard.querySelector(".delete-btn");
+  deleteButton.addEventListener("click", () => deleteBook(index));
+
+  // Add isRead listener
+  const checkbox = bookCard.querySelector(".is-read-checkbox");
+  checkbox.addEventListener("change", (e) => toggleReadStatus(e, index));
+
   return bookCard;
 }
 
-// Attach event listeners for delete and read status
-function attachEventListeners() {
-  document.querySelectorAll(".delete-btn").forEach((button) => {
-    button.addEventListener("click", deleteBook);
-  });
-
-  document.querySelectorAll(".is-read-checkbox").forEach((checkbox) => {
-    checkbox.addEventListener("change", toggleReadStatus);
-  });
-}
-
-// Event Handlers
-function deleteBook(event) {
-  const bookIndex = event.target.getAttribute("data-index");
-  myLibrary.splice(bookIndex, 1);
-  updatingLibraryDOM(); // Обновляем DOM после удаления
-}
-
-function toggleReadStatus(event) {
-  const bookIndex = event.target.getAttribute("data-index");
-  myLibrary[bookIndex].isRead = event.target.checked;
-  updatingLibraryDOM(); // Обновляем DOM после изменения статуса
-}
-
-// Add a new book to library
-function addBookToLibrary() {
-  const [title, author, pages] = [...inputs].map((input) => input.value.trim());
-  const isRead = document.querySelector("#isReadCheckbox").checked;
-
-  if (!title || !author || !pages) {
-    alert("All fields must be filled out!");
-    return;
-  }
-
-  if (
-    myLibrary.some((book) => book.title === title && book.author === author)
-  ) {
-    alert("This book already exists in your library.");
-    return;
-  }
-
-  const newBook = new Book(title, author, pages, isRead);
-  myLibrary.push(newBook);
+// Remove book func
+function deleteBook(index) {
+  myLibrary.splice(index, 1);
   updatingLibraryDOM();
-  clearInputs();
 }
 
-// Clear input fields after adding a book
-function clearInputs() {
-  inputs.forEach((input) => (input.value = ""));
+// Toggle is read status func
+function toggleReadStatus(event, index) {
+  myLibrary[index].isRead = event.target.checked;
+  updatingLibraryDOM();
 }
 
-// Attach event listener to add book button
-addBookButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  addBookToLibrary();
-});
+// init DOM
+updatingLibraryDOM();
