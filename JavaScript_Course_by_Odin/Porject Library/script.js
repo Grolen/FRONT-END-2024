@@ -12,64 +12,78 @@ const myLibrary = [
   { title: "Book three", author: "Me", pages: "228" },
 ];
 
-function creatingLibraryDOM() {
-  myLibrary.forEach((book) => {
-    const title = book.title;
-    const author = book.author;
-    const pages = book.pages;
-    const parentEl = document.createElement("div");
-    parentEl.className = "book";
-    parentEl.innerHTML = `
-        <h3 class="book-title">${title}</h3>
-        <p class="book-author">${author}</p>
-        <p class="book-pages">${pages}</p>
-        `;
-    library.appendChild(parentEl);
-  });
-}
-
-creatingLibraryDOM();
-
-function updatingLibraryDOM() {
-  const addedBook = myLibrary[myLibrary.length - 1];
-  const title = addedBook.title;
-  const author = addedBook.author;
-  const pages = addedBook.pages;
-  const parentEl = document.createElement("div");
-  parentEl.className = "book";
-  parentEl.innerHTML = `
-      <h3 class="book-title">${title}</h3>
-      <p class="book-author">${author}</p>
-      <p class="book-pages">${pages}</p>
-      `;
-  library.appendChild(parentEl);
-}
-
-function Book(title, author, pages) {
+function Book(title, author, pages, isRead = false) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.info = function () {
-    return title + " " + author + " " + pages;
-  };
+  this.isRead = isRead;
+}
+
+updatingLibraryDOM();
+
+function updatingLibraryDOM() {
+  const container = document.querySelector(".library");
+  container.innerHTML = "";
+
+  myLibrary.forEach((book, index) => {
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book");
+
+    bookCard.innerHTML = `
+      <h3 class="book-title">${book.title}</h3>
+      <p class="book-author">${book.author}</p>
+      <p class="book-pages">${book.pages}</p>
+       <label>
+        <input type="checkbox" class="is-read-checkbox" data-index="${index}" ${
+      book.isRead ? "checked" : ""
+    }>
+        Is read
+      </label>
+      <span class="delete-btn" data-index="${index}">X</span>
+    `;
+
+    container.appendChild(bookCard);
+  });
+
+  document.querySelectorAll(".delete-btn").forEach((button) => {
+    button.addEventListener("click", deleteBook);
+  });
+
+  document.querySelectorAll(".is-read-checkbox").forEach((checkbox) => {
+    checkbox.addEventListener("change", toggleReadStatus);
+  });
+}
+
+function deleteBook() {
+  const bookIndex = this.getAttribute("data-index");
+  myLibrary.splice(bookIndex, 1);
+  updatingLibraryDOM();
+}
+
+function toggleReadStatus() {
+  const bookIndex = this.getAttribute("data-index");
+  myLibrary[bookIndex].isRead = this.checked;
 }
 
 function addBookToLibrary() {
-  if (
-    inputs[0].value !== "" &&
-    inputs[1].value !== "" &&
-    inputs[2].value !== ""
-  ) {
-    const bookTitle = inputs[0].value;
-    const bookAuthor = inputs[1].value;
-    const bookPages = inputs[2].value;
-    const newBook = new Book(bookTitle, bookAuthor, bookPages);
-    myLibrary.push(newBook);
+  const values = [...inputs].map((input) => input.value.trim());
+  const allFieldsFilled = values.every((value) => value !== "");
+
+  if (allFieldsFilled) {
+    const [bookTitle, bookAuthor, bookPages] = values;
+    const isRead = document.querySelector("#isReadCheckbox").checked;
+    myLibrary.push(createBook(bookTitle, bookAuthor, bookPages, isRead));
     updatingLibraryDOM();
-    inputs[0].value = "";
-    inputs[1].value = "";
-    inputs[2].value = "";
+    clearInputs();
   }
+}
+
+function createBook(title, author, pages) {
+  return new Book(title, author, pages);
+}
+
+function clearInputs() {
+  inputs.forEach((input) => (input.value = ""));
 }
 
 const addBookButton = document.querySelector(".submit-form");

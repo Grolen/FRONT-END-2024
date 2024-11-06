@@ -17,15 +17,29 @@ h1 {
     margin-top: 0;
 }
 
-.book {
-    border: 1px solid #000;
+fieldset {
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    text-align: center;
-    align-items: center;
+    flex-direction: column;
+    max-width: 30%;
 }
 
-.book-title {
+.library {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Автоматически добавляет колонки */
+    gap: 20px;
+}
+
+.book {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* .book-title {
     min-width: 200px;
 }
 
@@ -34,5 +48,9 @@ h1 {
 }
 
 .book-pages {
-    min-width: 50px;
+    min-width: 100px;
 }
+
+.read-checkbox {
+    min-width: 100px;
+} */
