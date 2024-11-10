@@ -1,81 +1,68 @@
-//Factory Functions and the Module Pattern
-
-function createUser(name) {
-  const discordName = "@" + name;
-
-  let reputation = 0;
-  const getReputation = () => reputation;
-  const giveReputation = () => reputation++;
-
-  return { name, discordName, getReputation, giveReputation };
-}
-
-const josh = createUser("josh");
-josh.giveReputation();
-josh.giveReputation();
-
-console.log({
-  discordName: josh.discordName,
-  reputation: josh.getReputation(),
-});
-// logs { discordName: "@josh", reputation: 2 }
-
-// const Gameboard = (function () {
-//   const board = Array(9).fill(null);
-//   const getBoard = () => board;
-//   return { getBoard };
-// })();
-
-// const GameStart = (function () {
-//   const body = document.querySelector("body");
-//   const board = Gameboard.getBoard();
-//   const startingBoard = [];
-//   for (let i = 0; i < board.length; i++) {
-//     const cell = `<button class="cell-btn-${i + 1}">${i + 1}</button>`;
-//     startingBoard.push(cell);
-//   }
-//   startingBoard.forEach((cellBtn) => {
-//     body.innerHTML += cellBtn;
-//   });
-//   const testFunc = () => {
-//     console.log("works");
-//   };
-//   const cellsDOM = document.querySelectorAll("button");
-//   cellsDOM.forEach((cellDOM) => {
-//     cellDOM.addEventListener("click", testFunc);
-//   });
-// })();
-
+//Step 1: Creating Gameboard
 const Gameboard = (function () {
-  const container = document.querySelector(".container");
   const board = Array(9).fill(null);
 
   const getBoard = () => board;
+  const setCell = (index, marker) => {
+    if (board[index] === null) {
+      board[index] = marker;
+    }
+  };
 
   const clearBoard = () => board.fill(null);
 
-  const createTemplate = (index) => {
-    const button = document.createElement("button");
-    button.classList.add(`cell-btn`, `cell-btn-${index}`);
-    button.innerText = "press me to change this text on X";
-    container.appendChild(button);
+  return { getBoard, setCell, clearBoard };
+})();
 
-    button.addEventListener("click", changeText);
+//Step 2: Creating players with a Factory Function
 
-    function changeText(event) {
-      event.preventDefault();
-      const targetedBtn = event.target;
-      targetedBtn.innerText = "X (well done!)";
+function createPlayer(name, marker) {
+  return { name, marker };
+}
+
+const player1 = createPlayer("Player 1", "x");
+const player2 = createPlayer("Player 2", "o");
+
+//Step 3: Creating object GameController for control the game's logic
+
+const GameController = (function () {
+  let currentPlayer = player1;
+
+  const switchPlayer = () => {
+    currentPlayer = currentPlayer === player1 ? player2 : player1;
+  };
+
+  const playGround = (index) => {
+    if (Gameboard.getBoard()[index] === null) {
+      Gameboard.setCell(index, currentPlayer.marker);
+      if (checkWinner()) {
+        alert(`${currentPlayer.name} wins!`);
+        Gameboard.clearBoard();
+      } else if (Gameboard.getBoard().every((cell) => cell != null)) {
+        alert(`It's a tie!`);
+        Gameboard.clearBoard();
+      }
+      switchPlayer();
     }
-
-    return button;
   };
 
-  const newRoundBoard = () => {
-    return board.map((cell, index) => {
-      return createTemplate(index + 1);
-    });
+  const checkWinner = () => {
+    const winningCombination = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    return winningCombination.some((combination) =>
+      combination.every(
+        (index) => Gameboard.getBoard()[index] === currentPlayer.marker
+      )
+    );
   };
 
-  const newArray = newRoundBoard();
+  return { playGround };
 })();
