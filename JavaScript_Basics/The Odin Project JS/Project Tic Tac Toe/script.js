@@ -66,3 +66,30 @@ const GameController = (function () {
 
   return { playGround };
 })();
+
+//Step 4: Creating a func for display the game process
+
+const DisplayController = (function () {
+  const gameBoardDiv = document.getElementById("game-board");
+
+  const renderBoard = () => {
+    gameBoardDiv.innerHTML = "";
+    Gameboard.getBoard().forEach((cell, index) => {
+      const cellDiv = document.createElement("div");
+      cellDiv.classList.add("cell");
+      cellDiv.textContent = cell;
+      cellDiv.addEventListener("click", () => {
+        GameController.playGround(index);
+        renderBoard();
+      });
+      gameBoardDiv.appendChild(cellDiv);
+    });
+  };
+  return { renderBoard };
+})();
+
+DisplayController.renderBoard();
+document.getElementById("restart").addEventListener("click", () => {
+  Gameboard.clearBoard();
+  DisplayController.renderBoard();
+});
