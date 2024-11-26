@@ -8,7 +8,19 @@
 </head>
 
 <body>
+
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe()" class="js-subscribe-button">Subscribe</button>
     <script>
+        function subscribe() {
+            const subscribeButton = document.querySelector('.js-subscribe-button');
+
+            if (subscribeButton.innerText === 'Subscribed') {
+                subscribeButton.innerHTML = 'Subscribe'
+            } else {
+                subscribeButton.innerHTML = 'Subscribed'
+            }
+        }
 
     </script>
 </body>
