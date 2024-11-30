@@ -8,7 +8,37 @@
 </head>
 
 <body>
+    <button class="btn-a">9a</button>
+    <button class="btn-b">9b</button>
+    <button class="heads-btn" onclick="userChoice(event.target)"">heads</button>
+    <button class=" tails-btn" onclick="userChoice(event.target)">tails</button>
+    <p></p>
+    <input type="text" name="name" id="name" onkeydown="console.log()">
+    <button class="submit-btn" onclick="submitFn()">Submit</button>
+    <p class="input-info"></p>
+    <script>
+        const buttonA = document.querySelector('.btn-a');
+        console.log(buttonA)
 
+        const buttonB = document.querySelector('.btn-b');
+        buttonB.innerText = '9a done!'
+
+        const headsBtn = document.querySelector('.heads-btn');
+        const tailsBtn = document.querySelector('.tails-btn');
+        const para = document.querySelector('p');
+
+        function userChoice(target) {
+            para.innerText = `You chose: ${target.innerText}`
+        }
+
+        const input = document.querySelector('#name');
+        const paraInput = document.querySelector('.input-info');
+
+        function submitFn() {
+            paraInput.innerText = `Your name is ${input.value}`
+        }
+
+    </script>
 </body>
 
 </html>
