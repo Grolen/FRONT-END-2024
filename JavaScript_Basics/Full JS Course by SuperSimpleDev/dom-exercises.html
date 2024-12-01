@@ -13,13 +13,29 @@
     <button class="heads-btn" onclick="userChoice(event.target)"">heads</button>
     <button class=" tails-btn" onclick="userChoice(event.target)">tails</button>
     <p></p>
-    <input type="text" name="name" id="name" onkeydown="console.log()">
+    <input type="text" name="name" id="name" onkeydown="
+        if(event.keyCode === 13) {
+            submitFn()
+        }
+    ">
     <button class="submit-btn" onclick="submitFn()">Submit</button>
     <p class="input-info"></p>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+      handleCostKeydown(event);
+    ">
+    <button onclick="
+      calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <input type="text" class="live-update" placeholder="Type something" onkeyup="liveUpdateFn()">
+    <p class="live-result"></p>
+
     <script>
         const buttonA = document.querySelector('.btn-a');
         console.log(buttonA)
-
         const buttonB = document.querySelector('.btn-b');
         buttonB.innerText = '9a done!'
 
@@ -36,6 +52,33 @@
 
         function submitFn() {
             paraInput.innerText = `Your name is ${input.value}`
+            input.value = ``;
+        }
+
+        function handleCostKeydown(event) {
+            if (event.key === 'Enter') {
+                calculateTotal();
+            }
+        }
+
+
+        function calculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input');
+            let cost = Number(inputElement.value);
+
+            if (cost < 40) {
+                cost = (cost + 10).toFixed(2);
+            }
+
+            document.querySelector('.js-total-cost')
+                .innerHTML = `$${cost}`;
+        }
+
+        const liveUpdateInput = document.querySelector('.live-update');
+        const livePara = document.querySelector('.live-result');
+
+        function liveUpdateFn() {
+            livePara.innerHTML = liveUpdateInput.value
         }
 
     </script>
