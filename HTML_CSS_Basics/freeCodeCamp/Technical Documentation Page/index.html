@@ -8,11 +8,28 @@
   </head>
 
   <body>
-    <!-- <nav id="navbar">
-        <header>
-            Работа с Native Instruments Traktor Kontrol S2 MK3.
-        </header>
-    </nav> -->
+    <nav id="navbar">
+      <header>Работа с NI Traktor Kontrol S2 MK3</header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Введение</a></li>
+        <li>
+          <a class="nav-link" href="#Device_Setup">Настройка устройства</a>
+        </li>
+        <li><a class="nav-link" href="#Key_Functions">Основные функции</a></li>
+        <li>
+          <a class="nav-link" href="#Software_Usage"
+            >Использование программного обеспечения</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Hotkeys">Горячие клавиши</a></li>
+        <li>
+          <a class="nav-link" href="#Setting_Cue_Points"
+            >Установка Cue Points</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Conclusion">Заключение</a></li>
+      </ul>
+    </nav>
     <main id="main-doc">
       <section class="main-section" id="Introduction">
         <header>Введение</header>
@@ -58,6 +75,24 @@
             вашему оборудованию. Это важно для получения оптимального качества
             звука и минимизации задержек при работе с контроллером.
           </p>
+          <p>Пример конфигурации звуковых и MIDI-настроек в JSON:</p>
+          <pre>
+
+              <code
+              >{
+                  "audio": {
+                      "device": "Traktor Kontrol S2 MK3",
+                      "output_channels": 2,
+                      "input_channels": 2
+                    },
+                    "midi": {
+                        "channel": 1,
+                        "control_change": [20, 21, 22]
+                    }
+                }
+                </code
+                >
+            </pre>
           <p>Шаги настройки звуковых параметров:</p>
           <ul>
             <li>Подключите устройство через USB</li>
@@ -100,6 +135,9 @@
             различные эффекты, такие как реверберация, фильтры и задержки, для
             создания интересных переходов и эффектных моментов в миксе.
           </p>
+          <p>Пример кода для управления эффектами:</p>
+          <pre><code>(// MIDI command to enable reverb effect
+            MIDI.sendControlChange(0x01, 127);  // Reverb on)</code></pre>
         </article>
       </section>
       <section class="main-section" id="Software_Usage">
@@ -123,6 +161,13 @@
             или активирование горячих клавиш. Это помогает ускорить работу и
             делает процесс микширования более гибким.
           </p>
+          <p>Пример кода для синхронизации BPM и настройки автолоопов:</p>
+          <pre><code>// Synchronize BPM and enable auto-loop
+            if (track1.BPM !== track2.BPM) {
+                syncTracks(track1, track2);
+            }
+            enableAutoLoop(4);  // Enable 4-beat loop
+            </code></pre>
           <p>Популярные эффекты в Traktor Pro 3:</p>
           <ul>
             <li>Reverb — эффект реверберации для создания пространства</li>
@@ -155,6 +200,12 @@
             </li>
             <li>**Shift + Play** — мгновенный запуск с точки cue</li>
           </ul>
+          <p>Пример кода для настройки горячих клавиш:</p>
+          <pre><code>[Hotkeys]
+PlayPause=Space
+Sync=Shift+S
+SetCue=Shift+C
+</code></pre>
         </article>
       </section>
       <section class="main-section" id="Setting_Cue_Points">
@@ -176,6 +227,17 @@
             мгновенно находя важные моменты, такие как хоровые участки или
             переходы, что улучшает процесс микширования и ускоряет работу.
           </p>
+          <p>
+            Пример кода для настройки Cue Points с указанием позиции и цвета:
+          </p>
+          <pre><code>{
+            "cue_points": [
+              {"position": 30, "color": "red"},
+              {"position": 60, "color": "blue"},
+              {"position": 120, "color": "green"}
+            ]
+          }
+          </code></pre>
         </article>
       </section>
       <section class="main-section" id="Conclusion">
