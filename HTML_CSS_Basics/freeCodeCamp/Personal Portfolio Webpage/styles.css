@@ -90,7 +90,7 @@
 }
 
 .about-me {
-  min-width: 750px;
+  max-width: 900px;
   position: absolute;
   top: 40%;
   left: 20%;
@@ -133,11 +133,68 @@ h1 {
 }
 
 .social-icons {
-  padding: 0 80px;
+  padding: 0 100px;
   background-color: #fff;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
   align-items: center;
   height: 50px;
+}
+
+.about-me__right-side {
+  width: 50%;
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-me__right-side * {
+  margin: 10px 0;
+}
+
+.greetings-hello {
+  font-size: 120px;
+  font-weight: 500;
+}
+
+.who-i-am {
+  font-size: 30px;
+}
+
+.about-me__buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.about-me__buttons button {
+  border: 1px solid black;
+  background-color: #fff;
+  padding: 5px 40px;
+  border-radius: 30px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.about-me__buttons button:first-child {
+  border: 1px solid rgb(9, 95, 9);
+  color: white;
+  background-color: rgb(9, 95, 9);
+}
+
+.about-me__buttons button:first-child:hover {
+  color: black;
+  background-color: #fff;
+}
+
+.about-me__buttons button:hover {
+  color: white;
+  background-color: rgb(9, 95, 9);
+  border: 1px solid rgb(9, 95, 9);
+  transition: 0.5s;
+}
+
+.short-bio {
+  font-weight: 200;
 }
