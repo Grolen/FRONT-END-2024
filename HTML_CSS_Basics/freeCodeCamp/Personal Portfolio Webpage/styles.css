@@ -19,7 +19,7 @@
   height: 100px;
   display: flex;
   justify-content: space-between;
-  background-color: #f7f7f7;
+  background-color: #fdfefe;
 }
 
 .header__about {
@@ -67,4 +67,77 @@
 }
 #main {
   margin-top: 100px;
+}
+
+.left-bg {
+  width: 40%;
+  height: 100vh;
+  background-color: #e6dace;
+}
+
+.right-bg {
+  background-color: #fdfefe;
+}
+
+.portfolio-image {
+  border-radius: 50%;
+  background-image: url(./photo.jpg);
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: -40px -5px;
+  background-size: 120%;
+}
+
+.about-me {
+  min-width: 750px;
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  display: flex;
+}
+
+.about-me__left-side {
+  width: 50%;
+  background-color: #f4ece6;
+  box-shadow: -5px 5px 20px -10px black;
+}
+
+.personal-info {
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.personal-info * {
+  margin: 15px 0;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.2em;
+}
+
+.hr {
+  width: 25%;
+  height: 1px;
+  background-color: black;
+}
+.personal-info p:last-child {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 0.25em;
+}
+
+.social-icons {
+  padding: 0 80px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  height: 50px;
 }
