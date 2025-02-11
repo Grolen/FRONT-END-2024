@@ -86,7 +86,6 @@
 
 #welcome-section {
   height: 82vh;
-  display: none;
 }
 
 .left-bg {
@@ -257,6 +256,7 @@ button {
   gap: 50px;
   align-items: center;
   padding: 30px 0;
+  display: none;
 }
 
 .resume-title {
