@@ -1,6 +1,10 @@
 /* <weight>: Use a value from 200 to 700
 <uniquifier>: Use a unique and descriptive class name */
 
+:root {
+  --second-color: rgb(9, 95, 9);
+}
+
 *,
 *::before,
 *::after {
@@ -16,10 +20,11 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 100px;
+  height: 70px;
   display: flex;
   justify-content: space-between;
   background-color: #fdfefe;
+  z-index: 999;
 }
 
 .header__about {
@@ -29,6 +34,14 @@
   font-size: 30px;
   font-weight: 700;
   margin: 0 20px;
+}
+
+.header__about::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-color: var(--second-color);
+  margin-top: 2px;
 }
 
 .header__about * {
@@ -52,7 +65,7 @@
 }
 
 .nav-list {
-  height: 100px;
+  height: 70px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -66,12 +79,19 @@
   font-weight: 200;
 }
 #main {
-  margin-top: 100px;
+  margin-top: 70px;
+}
+
+/* WELCOME SECTION */
+
+#welcome-section {
+  height: 82vh;
+  display: none;
 }
 
 .left-bg {
   width: 40%;
-  height: 100vh;
+  height: 100%;
   background-color: #e6dace;
 }
 
@@ -90,14 +110,16 @@
 }
 
 .about-me {
-  max-width: 900px;
+  width: 57%;
   position: absolute;
-  top: 40%;
+  top: 17%;
   left: 20%;
   display: flex;
 }
 
 .about-me__left-side {
+  display: flex;
+  flex-direction: column;
   width: 50%;
   background-color: #f4ece6;
   box-shadow: -5px 5px 20px -10px black;
@@ -123,7 +145,7 @@ h1 {
 .hr {
   width: 25%;
   height: 1px;
-  background-color: black;
+  background-color: var(--second-color);
 }
 .personal-info p:last-child {
   text-transform: uppercase;
@@ -151,12 +173,13 @@ h1 {
 }
 
 .about-me__right-side * {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .greetings-hello {
   font-size: 120px;
   font-weight: 500;
+  margin: -30px 0;
 }
 
 .who-i-am {
@@ -168,19 +191,22 @@ h1 {
   gap: 20px;
 }
 
-.about-me__buttons button {
+button {
   border: 1px solid black;
   background-color: #fff;
   padding: 5px 40px;
   border-radius: 30px;
   text-align: center;
   text-transform: uppercase;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 .about-me__buttons button:first-child {
-  border: 1px solid rgb(9, 95, 9);
+  border: 1px solid var(--second-color);
   color: white;
-  background-color: rgb(9, 95, 9);
+  background-color: var(--second-color);
+  transition: 0.5s;
 }
 
 .about-me__buttons button:first-child:hover {
@@ -190,11 +216,164 @@ h1 {
 
 .about-me__buttons button:hover {
   color: white;
-  background-color: rgb(9, 95, 9);
-  border: 1px solid rgb(9, 95, 9);
+  background-color: var(--second-color);
+  border: 1px solid var(--second-color);
   transition: 0.5s;
 }
 
 .short-bio {
   font-weight: 200;
+}
+
+/* FOOTER */
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  background-color: f4ece6;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.footer__info {
+  display: flex;
+  text-align: center;
+  line-height: 2em;
+  gap: 40px;
+}
+
+#footer .social-icons {
+  padding: 0;
+  height: 30px;
+}
+
+/* RESUME SECTION */
+
+#resume {
+  background-color: #e6dace;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.resume-title {
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.resume-title::before {
+  display: inline-block;
+  content: '';
+  width: 25px;
+  height: 25px;
+  background-color: var(--second-color);
+  margin-right: 5px;
+}
+
+.resume-subtitle {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.cv-download {
+  font-size: medium;
+  border: 1px solid var(--second-color);
+  color: white;
+  background-color: var(--second-color);
+  transition: 0.5s;
+}
+
+.cv-download:hover {
+  color: black;
+  background-color: #fff;
+}
+
+.resume-desc {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 70px 40px;
+}
+
+.resume-desc * {
+  font-weight: 200;
+}
+
+.resume-info__left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
+}
+
+.resume-info__right {
+  width: 50%;
+  align-self: center;
+}
+.resume-desc.no-info .resume-info__left {
+  width: 100%;
+  text-align: center;
+}
+.years {
+  color: var(--second-color);
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.position {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.resume-desc.skills {
+  flex-direction: column;
+}
+
+.my-skills {
+  display: flex;
+  gap: 20px;
+  width: 60%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+}
+
+.resume-desc.skills h2 {
+  margin-left: 13px;
+  margin-bottom: 15px;
+}
+
+.resume-desc.skills p::before {
+  display: inline-block;
+  content: '';
+  width: 13px;
+  height: 13px;
+  background-color: var(--second-color);
+  margin-right: 2px;
+}
+
+.resume-desc:last-child {
+  flex-direction: column;
+  font-weight: 200;
+}
+
+.resume-desc:last-child p {
+  margin: 10px 0;
+}
+
+.resume-desc:last-child p::before {
+  display: inline-block;
+  content: '';
+  width: 13px;
+  height: 13px;
+  background-color: var(--second-color);
+  margin-right: 2px;
 }
