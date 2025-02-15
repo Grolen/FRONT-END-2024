@@ -78,6 +78,11 @@
   font-size: 20px;
   font-weight: 200;
 }
+
+section {
+  scroll-margin-top: 70px;
+}
+
 #main {
   margin-top: 70px;
 }
@@ -256,7 +261,6 @@ button {
   gap: 50px;
   align-items: center;
   padding: 30px 0;
-  display: none;
 }
 
 .resume-title {
@@ -376,4 +380,21 @@ button {
   height: 13px;
   background-color: var(--second-color);
   margin-right: 2px;
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+  background-color: #e6dace;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.projects-title {
+  margin-top: 50px;
+  font-size: 30px;
+  font-weight: 700;
 }
