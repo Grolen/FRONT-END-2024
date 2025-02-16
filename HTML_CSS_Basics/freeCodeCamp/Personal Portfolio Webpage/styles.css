@@ -105,7 +105,7 @@ section {
 
 .portfolio-image {
   border-radius: 50%;
-  background-image: url(./photo.jpg);
+  background-image: url(./img/photo.jpg);
   width: 200px;
   height: 200px;
   background-size: cover;
@@ -397,4 +397,64 @@ button {
   margin-top: 50px;
   font-size: 30px;
   font-weight: 700;
+}
+
+.projects-title::before {
+  display: inline-block;
+  content: '';
+  width: 25px;
+  height: 25px;
+  background-color: var(--second-color);
+  margin-right: 5px;
+}
+
+.project-desc {
+  display: flex;
+  width: 60%;
+  max-height: 290px;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.projects-subtitle {
+  text-align: center;
+  justify-self: center;
+  width: 40%;
+  font-weight: 200;
+}
+
+.project-info__left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 40px;
+  width: 85%;
+}
+
+.project-name {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.project-name h4 {
+  color: var(--second-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.project-name::before {
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  content: '';
+  width: 15px;
+  height: 60px;
+  background-color: var(--second-color);
+  margin-right: 5px;
+}
+
+.project-about {
+  font-weight: 200;
+  margin-top: 15px;
 }
