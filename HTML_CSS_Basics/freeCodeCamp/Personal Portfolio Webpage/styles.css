@@ -661,6 +661,7 @@ button {
     align-items: center;
   }
   .header__about {
+    min-width: 210px;
     flex-wrap: wrap;
     align-items: stretch;
     font-size: var(--custom-25);
@@ -680,126 +681,6 @@ button {
     height: 20px;
     background-color: var(--second-color);
     margin-top: 0.625rem;
-  }
-  .nav-list li a {
-    font-size: var(--font-size-small);
-  }
-  #main {
-    margin-top: var(--header-height);
-  }
-  #welcome-section {
-    background: linear-gradient(
-      0deg,
-      var(--accent-bg) 70%,
-      transparent 1%,
-      var(--primary-bg)
-    );
-  }
-  .portfolio-image {
-    border-radius: 50%;
-    background-image: url(./img/photo.jpg);
-    width: 9.375rem;
-    height: 9.375rem;
-  }
-
-  .about-me {
-    width: 90%;
-    flex-direction: column;
-    align-self: stretch;
-    margin-top: var(--spacing-medium);
-  }
-
-  .about-me__left-side {
-    width: 100%;
-  }
-
-  .about-me__right-side {
-    margin: 0;
-    margin-top: 50px;
-    width: 100%;
-    gap: var(--spacing-medium);
-  }
-
-  .greetings-hello {
-    font-size: 5rem;
-    margin: calc(-1 * var(--custom-30)) -0.3125rem;
-  }
-  .who-i-am {
-    font-size: var(--font-size-medium);
-  }
-  button {
-    padding: var(--spacing-small) var(--spacing-medium);
-    font-size: var(--font-size-small);
-  }
-  #resume,
-  #projects {
-    gap: var(--spacing-medium);
-    padding: var(--spacing-medium) 0;
-  }
-  .resume-title,
-  .projects-title {
-    font-size: var(--custom-25);
-    margin-top: 0;
-  }
-  .resume-subtitle {
-    font-size: var(--font-size-medium);
-  }
-  .resume-title::before,
-  .projects-title::before {
-    width: 20px;
-    height: 20px;
-  }
-  button {
-    padding: var(--btn-padding-vertical) var(--spacing-medium);
-  }
-  .resume-desc {
-    gap: 0.625rem;
-    padding: var(--spacing-medium) var(--spacing-medium);
-  }
-  .resume-info__left {
-    gap: 0.625rem;
-  }
-  .years {
-    font-size: var(--font-size-medium);
-  }
-  .position {
-    font-size: var(--font-size-small);
-  }
-  .project-desc {
-    flex-direction: column;
-    text-align: center;
-  }
-  .project-info__left {
-    padding: var(--spacing-medium) var(--spacing-medium) 0;
-    width: 100%;
-    margin-bottom: var(--spacing-medium);
-  }
-  .project-name::before {
-    width: 10px;
-    left: calc(-1 * var(--spacing-medium));
-  }
-  #footer {
-    font-size: var(--font-size-small);
-    flex-direction: row-reverse;
-    flex-wrap: wrap-reverse;
-    justify-content: flex-end;
-    gap: var(--spacing-medium);
-    flex-grow: 1;
-  }
-  .footer__info {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--spacing-large);
-    line-height: 2em;
-    text-align: left;
-  }
-
-  .footer__info div {
-    min-width: 100px;
-  }
-
-  .socials {
-    margin-right: auto;
   }
   .hamburger {
     display: block;
@@ -840,7 +721,7 @@ button {
   }
 
   .nav-list li a {
-    font-size: 1.25rem;
+    font-size: var(--font-size-medium);
     font-weight: 700;
   }
 
@@ -857,5 +738,141 @@ button {
   .hamburger.open span:nth-child(3) {
     transform: rotate(-45deg);
     transform-origin: 7px -3px;
+  }
+
+  #main {
+    margin-top: var(--header-height);
+  }
+  #welcome-section {
+    height: initial;
+    background: linear-gradient(
+      0deg,
+      var(--accent-bg) 70%,
+      transparent 1%,
+      var(--primary-bg)
+    );
+  }
+  .portfolio-image {
+    border-radius: 50%;
+    background-image: url(./img/photo.jpg);
+    width: 9.375rem;
+    height: 9.375rem;
+  }
+
+  .about-me {
+    width: 90%;
+    flex-direction: column;
+    align-self: stretch;
+    margin-top: var(--spacing-medium);
+  }
+
+  .about-me__left-side {
+    width: 100%;
+  }
+
+  .about-me__right-side {
+    margin: 50px 0;
+    margin-top: 50px;
+    width: 100%;
+    gap: var(--spacing-medium);
+  }
+
+  .greetings-hello {
+    font-size: 5rem;
+    margin: calc(-1 * var(--custom-30)) -0.3125rem;
+  }
+  .who-i-am {
+    font-size: var(--font-size-medium);
+  }
+  button {
+    padding: var(--spacing-small) var(--spacing-medium);
+    font-size: var(--font-size-small);
+  }
+  #resume,
+  #projects {
+    gap: var(--spacing-medium);
+    padding: var(--spacing-medium) 0;
+  }
+  .resume-title,
+  .projects-title {
+    font-size: var(--custom-25);
+    margin-top: 0;
+  }
+  .resume-subtitle {
+    font-size: var(--font-size-small);
+    align-items: center;
+    width: 90%;
+  }
+  .resume-title::before,
+  .projects-title::before {
+    width: 20px;
+    height: 20px;
+  }
+  button {
+    padding: var(--btn-padding-vertical) var(--spacing-medium);
+  }
+
+  .cv-download {
+    font-size: 0.625rem;
+  }
+  .resume-desc {
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: var(--spacing-medium) var(--spacing-medium);
+    font-size: 0.625rem;
+    width: 90%;
+  }
+  .resume-info__left {
+    width: 100%;
+    gap: 0.625rem;
+  }
+  .resume-info__right {
+    width: 100%;
+    align-self: center;
+  }
+  .years {
+    font-size: 0.9375rem;
+  }
+  .projects-subtitle {
+    width: 90%;
+  }
+
+  .project-desc {
+    width: 90%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .project-info__left {
+    padding: var(--spacing-medium) var(--spacing-medium) 0;
+    width: 100%;
+    margin-bottom: var(--spacing-medium);
+  }
+  .project-name::before {
+    width: 10px;
+    left: calc(-1 * var(--spacing-medium));
+  }
+  #footer {
+    font-size: var(--font-size-small);
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+    gap: var(--spacing-medium);
+    padding: 10px;
+  }
+  .footer__info {
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-large);
+    line-height: 2em;
+    text-align: left;
+  }
+
+  .footer__info div {
+    min-width: 100px;
+  }
+
+  .socials {
+    margin-right: auto;
   }
 }

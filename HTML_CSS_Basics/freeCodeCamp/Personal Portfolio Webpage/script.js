@@ -15,7 +15,9 @@ document.querySelectorAll('nav a').forEach((link) => {
   });
 });
 
-const buttons = document.querySelectorAll('button:not(.hamburger)');
+const buttons = document.querySelectorAll(
+  'button:not(.hamburger, .cv-download)'
+);
 
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
