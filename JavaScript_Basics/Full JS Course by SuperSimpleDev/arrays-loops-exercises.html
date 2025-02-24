@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays and Loops Exercises</title>
+</head>
+
+<body>
+    <script>
+        //1, 2
+        const stringArr = ['hello', 'good', 'search', 'apple', 'banana', 'search'];
+        let foundedString = false;
+        for (let i = 0; i < stringArr.length; i++) {
+            const element = stringArr[i];
+            if (element === 'search') {
+                foundedString = true;
+                console.log(i)
+                break;
+            }
+        }
+        if (!foundedString) {
+            console.log(-1)
+        }
+
+        //3
+        function findIndex(array, word) {
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                if (element === word) {
+                    return i;
+                }
+            }
+            return -1
+
+        }
+
+        console.log(findIndex(stringArr, 'banana'))
+
+        //4, 5, 6 
+        function removeEgg(foodsArr) {
+            const egglessArr = [];
+            let counter = 0;
+            for (let i = 0; i < foodsArr.length; i++) {
+                const element = foodsArr[i];
+                if (element === 'egg') {
+                    counter++;
+                    if (counter > 2) {
+                        egglessArr.push(element)
+                    }
+                    continue;
+                } else {
+                    egglessArr.push(element)
+                }
+            }
+            return egglessArr
+        }
+
+        console.log(removeEgg(['egg', 'apple', 'egg', 'ham', 'banana', 'egg'].reverse()))
+    </script>
+</body>
+
+</html>
