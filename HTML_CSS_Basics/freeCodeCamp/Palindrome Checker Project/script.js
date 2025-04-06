@@ -18,8 +18,6 @@ const palCheckerFunc = (str, revStr) => {
   }
 };
 
-// refactured
-
 // *step 2: create an event listener that will process a value from the input
 
 button.addEventListener('click', (e) => {
