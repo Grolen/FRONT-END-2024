@@ -10,19 +10,15 @@ const p = document.querySelector('.result');
 
 let isItPalindrome;
 
-const palCheckerFunc = (arr) => {
-  for (let i = 0; i < arr.length / 2; ) {
-    const firstEl = arr[i];
-    const lastEl = arr[arr.length - 1 - i];
-    if (firstEl !== lastEl) {
-      isItPalindrome = false;
-      break;
-    } else {
-      i++;
-      isItPalindrome = true;
-    }
+const palCheckerFunc = (str, revStr) => {
+  if (str === revStr) {
+    isItPalindrome = true;
+  } else {
+    isItPalindrome = false;
   }
 };
+
+// refactured
 
 // *step 2: create an event listener that will process a value from the input
 
@@ -32,36 +28,28 @@ button.addEventListener('click', (e) => {
 
   // *step 3: inside the listener I need:
 
-  // a. remove all the dots and spaces in the value (using regex or alt)
+  // a. remove all the dots and spaces in the value (using regex or alt), change all the chars to lower case
+  // b. make a reversed value
 
   const regex = /[\. ,_:-]+/g;
-  const cleanValue = value.replace(regex, '');
+  const processedValue = value.replace(regex, '').toLowerCase();
+  const revValue = processedValue.split('').reverse().join('');
 
-  // b. .split("") the value and make it an array
+  // c. create a palindrome checker, using "if" statement
 
-  const arrValue = cleanValue.split('');
-
-  // c. create a length checker (odd or even), using "if" statement
-
-  // ? d. write code for both cases. if even - divide the array in half, if odd - use the element thats on the middle and double it (ex: "abcba" - "c" in the middle so I need to make it read for my code as "abccba")
-
-  if (arrValue.length % 2 === 0) {
-    palCheckerFunc(arrValue);
-  } else {
-    const middleEl = (arrValue.length + 1) / 2 - 1;
-    arrValue.splice(middleEl, 0, arrValue[middleEl]);
-    palCheckerFunc(arrValue);
-  }
+  palCheckerFunc(processedValue, revValue);
 
   // e. show to a user the result of his value he did put
 
-  if (arrValue.length === 0) {
-    p.textContent = 'Please enter a valid value.';
+  if (processedValue === '') {
+    alert('Please enter a valid value.');
   } else if (isItPalindrome) {
-    p.textContent = 'Yay! You entered a palindrome!';
+    p.textContent = `Yay! ${value} is a palindrome!`;
   } else {
-    p.textContent = 'Unfortunately, it is not a palindrome :c';
+    p.textContent = `Unfortunately, ${value} is not a palindrome :c`;
   }
+
+  // f. clear the input for next value
 
   input.value = '';
 });
