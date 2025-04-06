@@ -6,6 +6,8 @@ const input = document.querySelector('#palindrome');
 
 const button = document.querySelector('.palindrome-checker');
 
+const p = document.querySelector('.result');
+
 let isItPalindrome;
 
 const palCheckerFunc = (arr) => {
@@ -51,11 +53,15 @@ button.addEventListener('click', (e) => {
     palCheckerFunc(arrValue);
   }
 
-  // e. show to a user the result of his value he did put (true or false).
+  // e. show to a user the result of his value he did put
 
-  if (isItPalindrome) {
-    console.log('Yay! You entered a palindrome!');
+  if (arrValue.length === 0) {
+    p.textContent = 'Please enter a valid value.';
+  } else if (isItPalindrome) {
+    p.textContent = 'Yay! You entered a palindrome!';
   } else {
-    console.log('Unfortunately, it is not a palindrome :c');
+    p.textContent = 'Unfortunately, it is not a palindrome :c';
   }
+
+  input.value = '';
 });
