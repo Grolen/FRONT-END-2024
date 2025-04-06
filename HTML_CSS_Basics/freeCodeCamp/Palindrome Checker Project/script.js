@@ -29,7 +29,7 @@ button.addEventListener('click', (e) => {
   // a. remove all the dots and spaces in the value (using regex or alt), change all the chars to lower case
   // b. make a reversed value
 
-  const regex = /[\. ,_:-]+/g;
+  const regex = /[\. ,_:()/\\-]+/g;
   const processedValue = value.replace(regex, '').toLowerCase();
   const revValue = processedValue.split('').reverse().join('');
 
